@@ -17,10 +17,7 @@
 
 package com.github.collinalpert.expressions.expression;
 
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.Type;
+import org.objectweb.asm.*;
 
 import java.util.function.Supplier;
 
@@ -40,7 +37,7 @@ final class ExpressionClassVisitor extends ClassVisitor {
 	private Type _objectType;
 
 	public ExpressionClassVisitor(ClassLoader loader, Supplier<ConstantExpression> instance, String method, String methodDescriptor) {
-		super(Opcodes.ASM7);
+		super(Opcodes.ASM9);
 		_loader = loader;
 		_me = instance;
 		_method = method;

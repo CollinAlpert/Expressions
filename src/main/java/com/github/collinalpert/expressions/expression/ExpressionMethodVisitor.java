@@ -17,22 +17,12 @@
 
 package com.github.collinalpert.expressions.expression;
 
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.Attribute;
-import org.objectweb.asm.Handle;
-import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
+import org.objectweb.asm.*;
 
 import java.lang.invoke.LambdaMetafactory;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.*;
+import java.util.*;
 import java.util.function.Supplier;
 
 final class ExpressionMethodVisitor extends MethodVisitor {
@@ -65,7 +55,7 @@ final class ExpressionMethodVisitor extends MethodVisitor {
 	private Supplier<ConstantExpression> _me;
 
 	ExpressionMethodVisitor(ExpressionClassVisitor classVisitor, Supplier<ConstantExpression> me, Class<?>[] argTypes) {
-		super(Opcodes.ASM7);
+		super(Opcodes.ASM9);
 		_classVisitor = classVisitor;
 		_me = me;
 		_argTypes = argTypes;
@@ -276,7 +266,7 @@ final class ExpressionMethodVisitor extends MethodVisitor {
 			value = 0L;
 		} else if (type == Short.TYPE) {
 			value = (short) 0;
-		} else if (type == Boolean.TYPE) {
+		} else if (type == Boolean.TYPE || type == Boolean.class) {
 			value = Boolean.FALSE;
 		} else {
 			throw new IllegalStateException(type.toString());
