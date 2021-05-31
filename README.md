@@ -1,5 +1,5 @@
 # Expressions
-**Note:** You need Java 13 or a higher version installed to use this library.
+**Note:** You need Java 11 or a higher version installed to use this library.
 
 This library enables Java 8 Lambdas to be represented as objects in the form of expression trees at runtime:
 
