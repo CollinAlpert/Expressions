@@ -97,7 +97,7 @@ You can include the Maven dependency:
 <dependency>
     <groupId>com.github.collinalpert</groupId>
     <artifactId>expressions</artifactId>
-    <version>2.5</version>
+    <version>2.7.0</version>
 </dependency>
 ```
 
